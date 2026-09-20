@@ -1,7 +1,7 @@
 # ============================================================
-# Static portfolio served by nginx (Artifactory-mirrored image)
+# Static portfolio served by nginx (public Docker Hub image)
 # ============================================================
-FROM containers.artifactory.tools.bestbuy.com/nginxinc/nginx-unprivileged:1.27-alpine
+FROM nginxinc/nginx-unprivileged:1.27-alpine
 
 # Copy site
 COPY index.html /usr/share/nginx/html/index.html
