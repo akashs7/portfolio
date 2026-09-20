@@ -1,0 +1,9 @@
+services:
+  portfolio:
+    build: .
+    image: portfolio:latest
+    container_name: portfolio
+    restart: unless-stopped
+    ports:
+      # host:container — Cloudflare Tunnel points at http://localhost:8088
+      - "8088:8080"

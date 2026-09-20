@@ -1,0 +1,14 @@
+# ============================================================
+# Static portfolio served by nginx (Artifactory-mirrored image)
+# ============================================================
+FROM containers.artifactory.tools.bestbuy.com/nginxinc/nginx-unprivileged:1.27-alpine
+
+# Copy site
+COPY index.html /usr/share/nginx/html/index.html
+COPY styles/ /usr/share/nginx/html/styles/
+COPY scripts/ /usr/share/nginx/html/scripts/
+
+# Custom nginx config (gzip + caching + SPA-safe fallback)
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 8080
