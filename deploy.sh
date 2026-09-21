@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 # ============================================================
-# deploy.sh — pull latest, rebuild, and health-check the
-# portfolio container on the home server.
+# deploy.sh — only rebuild + health-check the portfolio
+# container when the remote branch has NEW commits.
+#
+# Exits early (0) with no rebuild if already up to date, so it
+# is safe to run frequently from cron (e.g. every 5 minutes).
 #
 # Usage:  ./deploy.sh
 # ============================================================
@@ -28,17 +31,21 @@ else
   fail "Docker Compose not found. Install Docker + Compose plugin first."
 fi
 
-# --- 1. Pull latest code ---
+# --- 1. Check for new changes on the remote ---
 log "Fetching latest from git..."
-BEFORE="$(git rev-parse HEAD)"
-git pull --ff-only
-AFTER="$(git rev-parse HEAD)"
+BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+git fetch --quiet origin "$BRANCH"
 
-if [[ "$BEFORE" == "$AFTER" ]]; then
-  log "Already up to date ($AFTER). Rebuilding anyway to be safe."
-else
-  log "Updated ${BEFORE:0:7} -> ${AFTER:0:7}."
+LOCAL="$(git rev-parse HEAD)"
+REMOTE="$(git rev-parse "origin/${BRANCH}")"
+
+if [[ "$LOCAL" == "$REMOTE" ]]; then
+  log "Already up to date ($LOCAL). Nothing to deploy."
+  exit 0
 fi
+
+log "New changes detected ${LOCAL:0:7} -> ${REMOTE:0:7}. Deploying..."
+git merge --ff-only "origin/${BRANCH}"
 
 # --- 2. Build and (re)start ---
 log "Building and starting container..."
