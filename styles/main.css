@@ -397,12 +397,22 @@ strong { color: var(--text); font-weight: 600; }
   overflow: hidden;
   border: 1px solid var(--border);
   background: var(--bg-elev-2);
+  aspect-ratio: 16 / 10;
   min-height: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0.5rem;
 }
-.project__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.project__media img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px;
+  display: block;
+}
 .project__media--empty {
   min-height: 180px;
   color: var(--text-muted);
@@ -411,7 +421,7 @@ strong { color: var(--text); font-weight: 600; }
   padding: 1rem;
   text-align: center;
 }
-.project__media--diagram { padding: 0.75rem; align-items: stretch; }
+.project__media--diagram { padding: 0.75rem; align-items: stretch; aspect-ratio: auto; }
 .ascii-arch {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.72rem;
@@ -421,7 +431,7 @@ strong { color: var(--text); font-weight: 600; }
   white-space: pre;
   overflow-x: auto;
 }
-.project__body { display: flex; flex-direction: column; gap: 0.75rem; }
+.project__body { display: flex; flex-direction: column; gap: 0.75rem; min-width: 0; }
 .project__head { display: flex; align-items: center; gap: 0.75rem; }
 .project__head h3 { font-size: 1.3rem; font-weight: 700; }
 .project__status {
