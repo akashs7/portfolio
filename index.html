@@ -3,8 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Akash Singh — Data & Platform Engineer specializing in big data platforms, cloud infrastructure, and AI." />
-  <title>Akash Singh — Data & Platform Engineer</title>
+  <meta name="description" content="Akash Singh — Data Engineer / SDE building reliable data platforms, pipelines, and developer tools across BigQuery, Spark, Databricks and Python." />
+  <title>Akash Singh — Data Engineer / SDE</title>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Akash Singh — Data Engineer / SDE" />
+  <meta property="og:description" content="I build reliable data platforms, pipelines, and developer tools. Self-hosted on my own home lab (S7 Labs)." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -15,13 +21,14 @@
   <header class="nav" id="nav">
     <a href="#top" class="nav__brand">AS<span class="dot">.</span></a>
     <nav class="nav__links" aria-label="Primary">
-      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
       <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a href="#achievements">Achievements</a>
-      <a href="#beyond">Beyond Work</a>
+      <a href="#case-studies">Case Studies</a>
+      <a href="#labs">S7 Labs</a>
+      <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
+    <a class="btn btn--ghost nav__resume" data-resume href="/api/resume">Résumé</a>
     <button class="nav__theme" id="themeToggle" aria-label="Toggle color theme">◐</button>
     <button class="nav__burger" id="burger" aria-label="Toggle menu">☰</button>
   </header>
@@ -30,66 +37,169 @@
     <!-- ===================== HERO ===================== -->
     <section class="hero">
       <div class="hero__inner">
-        <p class="hero__eyebrow">Data &amp; Platform Engineer</p>
+        <p class="hero__eyebrow">Data Engineer / SDE — Data Platforms</p>
         <h1 class="hero__title">Akash Singh</h1>
         <p class="hero__lead">
-          I build <strong>large-scale big data platforms</strong>, cloud infrastructure, and
-          AI-powered self-service tooling. 5+ years across
-          <span class="hl">GCP</span>, <span class="hl">Azure</span>,
-          <span class="hl">Databricks</span> &amp; <span class="hl">BigQuery</span>.
+          I build <strong>reliable data platforms, pipelines, and developer tools</strong>.
+          Currently working with large-scale data systems — experience across
+          <span class="hl">BigQuery</span>, <span class="hl">Spark</span>,
+          <span class="hl">Databricks</span>, <span class="hl">Python</span> &amp; <span class="hl">SQL</span>.
         </p>
         <div class="hero__cta">
-          <a class="btn btn--primary" href="#experience">View my work</a>
-          <a class="btn btn--ghost" href="#contact">Get in touch</a>
-        </div>
-        <div class="hero__stats">
-          <div class="stat"><span class="stat__num">5+</span><span class="stat__label">Years experience</span></div>
-          <div class="stat"><span class="stat__num">50+</span><span class="stat__label">Internal consumers served</span></div>
-          <div class="stat"><span class="stat__num">$1.3M</span><span class="stat__label">Annual savings driven</span></div>
+          <a class="btn btn--primary" href="#projects">View Projects</a>
+          <a class="btn btn--ghost" href="#experience">Experience</a>
+          <a class="btn btn--ghost" href="https://github.com/akashs7" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
     </section>
 
-    <!-- ===================== ABOUT ===================== -->
-    <section class="section" id="about">
-      <h2 class="section__title"><span class="section__num">01</span> About</h2>
-      <div class="about">
-        <p>
-          I'm a Data &amp; Platform Engineer who's passionate about
-          <strong>big data problems, distributed data platforms, and AI</strong>. I love turning
-          messy, disconnected data landscapes into governed, self-serve golden paths that teams
-          actually enjoy using.
-        </p>
-        <p>
-          Currently a <strong>Software Engineer II (Data)</strong> at Best Buy India, where I design
-          and operate data platform infrastructure on Google Cloud and platformize AI-powered
-          self-service tooling. Previously a Data Engineer at Shell, building distributed streaming
-          pipelines on Azure &amp; Databricks.
-        </p>
-        <p>
-          I'm energized by new developments in big data and AI — agentic systems, LLM orchestration,
-          and the ever-evolving cloud data stack. When I'm not building, I run a self-hosted homelab
-          (this site lives on it).
-        </p>
+    <!-- ===================== FEATURED PROJECTS ===================== -->
+    <section class="section" id="projects">
+      <h2 class="section__title"><span class="section__num">01</span> Featured Projects</h2>
+      <p class="section__lead">A few things I've built end-to-end — problem, architecture, and the interesting decisions along the way.</p>
+
+      <div class="projects">
+        <!-- ---------- Daily One ---------- -->
+        <article class="project">
+          <div class="project__media">
+            <!-- TODO: drop a screenshot at assets/screenshots/daily-one.png -->
+            <img src="assets/screenshots/daily-one.png" alt="Daily One app screenshot" loading="lazy"
+                 onerror="this.classList.add('project__media--empty');this.alt='Screenshot coming soon';" />
+          </div>
+          <div class="project__body">
+            <div class="project__head">
+              <h3>Daily One</h3>
+              <span class="project__status project__status--live">Live</span>
+            </div>
+            <p class="project__tagline">A personal accountability &amp; streak app that keeps one important habit on track every day.</p>
+
+            <details class="project__detail">
+              <summary>Read the engineering story</summary>
+              <div class="project__grid">
+                <div><h4>Problem</h4><p>Habit trackers get abandoned because they demand too much. I wanted a dead-simple daily commitment with real streak accountability.</p></div>
+                <div><h4>Solution</h4><p>A focused web app: one daily task, streak logic, and reminders — nothing else competing for attention.</p></div>
+                <div><h4>Architecture</h4><p>Containerized web app served behind Cloudflare Tunnel on my home server, alongside the rest of S7 Labs. <em>(TODO: fill exact stack — e.g. framework, DB, auth provider.)</em></p></div>
+                <div><h4>Interesting challenges</h4><p>Modeling streaks correctly across time zones and missed days; keeping auth/session handling simple but secure.</p></div>
+                <div><h4>Auth</h4><p>Authenticated access with per-user state. <em>(TODO: name the authN/authZ approach — session cookies, OAuth, etc.)</em></p></div>
+                <div><h4>Result</h4><p>Running in daily use on <code>daily-one.s7labs.dev</code>.</p></div>
+              </div>
+            </details>
+
+            <div class="project__tech">
+              <span>Docker</span><span>Cloudflare Tunnel</span><span>Web app</span><span>Auth</span>
+            </div>
+            <div class="project__links">
+              <a class="link" href="https://daily-one.s7labs.dev" target="_blank" rel="noopener">Live app ↗</a>
+              <!-- TODO: add GitHub link if public -->
+            </div>
+          </div>
+        </article>
+
+        <!-- ---------- Athena Research Platform ---------- -->
+        <article class="project">
+          <div class="project__media">
+            <img src="assets/screenshots/athena.png" alt="Athena Research Platform screenshot" loading="lazy"
+                 onerror="this.classList.add('project__media--empty');this.alt='Screenshot coming soon';" />
+          </div>
+          <div class="project__body">
+            <div class="project__head">
+              <h3>Athena Research Platform</h3>
+              <span class="project__status project__status--build">In progress</span>
+            </div>
+            <p class="project__tagline">A research platform for collecting market data, generating signals, backtesting strategies and evaluating performance — engineering-first, not a trading bot.</p>
+
+            <details class="project__detail">
+              <summary>Read the engineering story</summary>
+              <div class="project__grid">
+                <div><h4>Problem</h4><p>Intraday market research needs clean, causal data and a repeatable way to test ideas — most retail tooling leaks future information or can't be reproduced.</p></div>
+                <div><h4>Data ingestion</h4><p>Polling/API-based ingestion with an automatic mock mode when credentials are absent, plus layered fallbacks across data sources so a single provider outage doesn't stop research.</p></div>
+                <div><h4>Storage &amp; features</h4><p>Feature functions are causal by construction (no look-ahead) and versioned, with an <code>ingested_at</code> distinct from event time to track leakage.</p></div>
+                <div><h4>Signal &amp; backtesting</h4><p>A weighted signal model scores each indicator into a composite; ridge-regression tuning fits forward-return weights and stores append-only model snapshots for auditability.</p></div>
+                <div><h4>Interesting decisions</h4><p>Strict separation of paper-trading from any execution; graceful degradation when a broker plan lacks historical/options APIs.</p></div>
+                <div><h4>Result</h4><p>Data platform + monitoring dashboard shipped; signal model + retraining in progress.</p></div>
+              </div>
+            </details>
+
+            <div class="project__tech">
+              <span>Python</span><span>Streamlit</span><span>SQLite</span><span>Time-series</span><span>ML (ridge)</span>
+            </div>
+            <div class="project__links">
+              <!-- TODO: add repo link if/when public -->
+              <span class="link link--muted">Private repo</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- ---------- S7 Labs / Home Lab ---------- -->
+        <article class="project">
+          <div class="project__media project__media--diagram">
+            <pre class="ascii-arch" aria-label="Home lab architecture diagram">
+Internet
+   │
+Cloudflare  (edge TLS, WAF, DNS)
+   │
+Cloudflare Tunnel  (zero-trust, no open ports)
+   │
+Home Server  (Ubuntu · s7labs.dev)
+   │
+Docker
+   ├── Portfolio      (this site)
+   ├── Daily One      (accountability app)
+   ├── Immich         (self-hosted photos)
+   └── Other services</pre>
+          </div>
+          <div class="project__body">
+            <div class="project__head">
+              <h3>S7 Labs — Home Lab</h3>
+              <span class="project__status project__status--live">Running</span>
+            </div>
+            <p class="project__tagline">A physical home server running my personal services in Docker, exposed safely to the internet through Cloudflare Tunnel — no inbound ports opened.</p>
+
+            <details class="project__detail">
+              <summary>Read the engineering story</summary>
+              <div class="project__grid">
+                <div><h4>Problem</h4><p>I wanted to self-host real applications (this portfolio, a photo library, side projects) on my own hardware without exposing my home network.</p></div>
+                <div><h4>Solution</h4><p>An Ubuntu box running everything in Docker, published via Cloudflare Tunnel so ingress is zero-trust — the origin never listens on a public port.</p></div>
+                <div><h4>Networking</h4><p>Cloudflare edge terminates TLS and handles DNS for <code>s7labs.dev</code>; the tunnel maps hostnames to local container ports over HTTP internally.</p></div>
+                <div><h4>Security hardening</h4><p>SSH bound to localhost only (systemd socket activation), tunnel-only exposure, and per-service scoping — reducing the public surface to just the tunnel.</p></div>
+                <div><h4>Interesting challenges</h4><p>Correct tunnel origin scheme (HTTP vs HTTPS), socket-activated SSH quirks, and keeping services isolated.</p></div>
+                <div><h4>Result</h4><p>Multiple services running reliably behind one domain — this page is served from it.</p></div>
+              </div>
+            </details>
+
+            <div class="project__tech">
+              <span>Docker</span><span>Cloudflare Tunnel</span><span>Ubuntu</span><span>nginx</span><span>Zero-trust</span>
+            </div>
+            <div class="project__links">
+              <a class="link" href="#labs">See the lab ↓</a>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
-    <!-- ===================== EXPERIENCE ===================== -->
+    <!-- ===================== EXPERIENCE / IMPACT ===================== -->
     <section class="section" id="experience">
-      <h2 class="section__title"><span class="section__num">02</span> Experience</h2>
+      <h2 class="section__title"><span class="section__num">02</span> Engineering Experience</h2>
+      <p class="section__lead">Outcome-oriented highlights. No proprietary architecture, queries, or company-internal data.</p>
 
       <article class="job">
         <div class="job__head">
-          <h3>Software Engineer II <span class="job__sub">(Data)</span></h3>
+          <h3>Data Engineer / SDE II <span class="job__sub">(Data Platforms)</span></h3>
           <span class="job__co">Best Buy India</span>
           <span class="job__date">Apr 2025 — Present</span>
         </div>
+        <p class="job__theme">Data Platform Modernization</p>
+        <p class="job__summary">Consolidated disconnected analytical datasets into a single governed platform on BigQuery and redesigned expensive queries into cheaper, faster ones.</p>
+        <div class="metrics">
+          <div class="metric"><span class="metric__num">+40%</span><span class="metric__label">Faster reporting</span></div>
+          <div class="metric"><span class="metric__num">−25%</span><span class="metric__label">Lower compute / slot use</span></div>
+          <div class="metric"><span class="metric__num">50+</span><span class="metric__label">Internal consumers served</span></div>
+        </div>
         <ul class="job__points">
-          <li>Designed &amp; operated <strong>large-scale data platform infrastructure</strong> on GCP (BigQuery, Vertex AI), consolidating disconnected sources into a single governed source of truth for 50+ consumers — <strong>+40% reporting speed, −20% storage cost</strong>.</li>
-          <li>Built &amp; optimized <strong>CI/CD pipelines with GitHub Actions</strong> across dev &amp; prod, cutting deployment time by 30% and enabling safe, repeatable rollouts.</li>
-          <li>Platformized <strong>AI-powered self-service tooling</strong> (conversational analytics, virtual assistants) as reusable internal services — <strong>−45% ad-hoc requests, −60% manual analyst effort</strong>.</li>
-          <li>Drove <strong>cost &amp; performance optimization</strong> via SQL/query tuning, workload scheduling, and slot management — <strong>−25% compute &amp; runtime</strong>.</li>
-          <li>Built an <strong>audit-trail contract history framework</strong> for exact point-in-time state reconstruction and compliance-grade historical reporting.</li>
+          <li>Platformized <strong>AI-powered self-service tooling</strong> (conversational analytics, virtual assistants) into reusable internal services — cutting ad-hoc requests and manual analyst effort.</li>
+          <li>Built and optimized <strong>CI/CD with GitHub Actions</strong> across dev &amp; prod for safe, repeatable rollouts.</li>
+          <li>Designed an <strong>audit-trail / point-in-time history framework</strong> for compliance-grade historical reporting.</li>
         </ul>
       </article>
 
@@ -99,83 +209,156 @@
           <span class="job__co">Shell India Markets</span>
           <span class="job__date">Oct 2021 — Apr 2025</span>
         </div>
+        <p class="job__theme">Streaming &amp; Warehousing at Scale</p>
+        <p class="job__summary">Built distributed streaming pipelines and a scalable cloud data warehouse on Azure &amp; Databricks, with reusable ingestion frameworks.</p>
+        <div class="metrics">
+          <div class="metric"><span class="metric__num">−40%</span><span class="metric__label">Query times</span></div>
+          <div class="metric"><span class="metric__num">−25%</span><span class="metric__label">Pipeline latency</span></div>
+          <div class="metric"><span class="metric__num">+40%</span><span class="metric__label">Delivery efficiency</span></div>
+        </div>
         <ul class="job__points">
-          <li>Engineered <strong>distributed data processing pipelines</strong> on Azure (Data Factory, Databricks, Delta Live Tables, Spark Streaming) for real-time workloads — <strong>−25% latency</strong>, improved fault tolerance.</li>
-          <li>Architected <strong>scalable cloud data warehousing</strong> — data modeling, schema design, storage/compute optimization — <strong>−40% query times, +30% efficiency</strong>, 50+ end-users.</li>
-          <li>Automated <strong>monitoring, alerting &amp; ops workflows</strong> with Azure Functions, Logic Apps &amp; Log Analytics, improving incident detection.</li>
-          <li>Designed multi-source ingestion &amp; transformation frameworks in Python, SQL &amp; PySpark with reusable parameterized components — <strong>+40% delivery efficiency</strong>.</li>
+          <li>Engineered <strong>real-time pipelines</strong> with Data Factory, Databricks, Delta Live Tables &amp; Spark Streaming — improving fault tolerance.</li>
+          <li>Automated <strong>monitoring, alerting &amp; ops</strong> with Azure Functions, Logic Apps &amp; Log Analytics.</li>
+          <li>Designed <strong>parameterized multi-source ingestion</strong> in Python, SQL &amp; PySpark for reuse across teams.</li>
         </ul>
       </article>
     </section>
 
-    <!-- ===================== SKILLS ===================== -->
-    <section class="section" id="skills">
-      <h2 class="section__title"><span class="section__num">03</span> Skills</h2>
-      <div class="skills">
-        <div class="skills__group">
-          <h3>Languages</h3>
-          <ul><li>Python</li><li>SQL</li><li>PySpark</li><li>Java</li><li>C/C++</li><li>JavaScript</li><li>Shell</li></ul>
+    <!-- ===================== CASE STUDIES ===================== -->
+    <section class="section" id="case-studies">
+      <h2 class="section__title"><span class="section__num">03</span> Case Studies</h2>
+      <p class="section__lead">Not "here's what I built" — "here's a hard problem and how I approached it." Details are generalized to avoid anything proprietary.</p>
+
+      <article class="case">
+        <div class="case__head">
+          <h3>Reducing BigQuery query cost &amp; runtime</h3>
+          <span class="case__badge">−25% slots</span>
         </div>
-        <div class="skills__group">
-          <h3>Cloud Platforms</h3>
-          <ul><li>GCP — BigQuery</li><li>Vertex AI</li><li>Cloud Storage</li><li>Azure Data Factory</li><li>Data Lake</li><li>Functions / Logic Apps</li><li>Databricks</li></ul>
+        <div class="case__grid">
+          <div><h4>Problem</h4><p>Core analytical queries were scanning far more data than needed and consuming excessive slots, driving up both runtime and cost.</p></div>
+          <div><h4>Investigation</h4><p>Profiled query plans and job stats to find the hotspots — full-table scans, wide reads, and redundant transformations repeated across dependent queries.</p></div>
+          <div><h4>Approach</h4><p>Introduced <strong>partitioning &amp; clustering</strong> on high-selectivity keys, pruned unnecessary columns, restructured queries to push filters down early, and removed duplicated transformation stages.</p></div>
+          <div><h4>Result</h4><p><strong>~25% reduction</strong> in slot consumption and runtime on the targeted workloads, with faster downstream reporting.</p></div>
+          <div><h4>What I learned</h4><p>Partitioning helps only when queries actually filter on the partition key — schema and query design have to be co-designed. Next time I'd bake cost/scan checks into CI earlier.</p></div>
         </div>
-        <div class="skills__group">
-          <h3>Platform &amp; DevOps</h3>
-          <ul><li>Docker / Compose</li><li>CI/CD — GitHub Actions</li><li>Azure DevOps</li><li>Cloudflare Tunnel / DNS</li><li>Linux Admin</li><li>Apache Airflow</li><li>Cost Optimization</li></ul>
+      </article>
+
+      <article class="case">
+        <div class="case__head">
+          <h3>Latest-per-key dedup without blowing the memory limit</h3>
+          <span class="case__badge">Query that finally ran</span>
         </div>
-        <div class="skills__group">
-          <h3>Data &amp; Distributed Systems</h3>
-          <ul><li>Spark Streaming</li><li>Delta Lake / DLT</li><li>ETL / ELT</li><li>Data Modeling</li><li>Teradata</li><li>Informatica</li><li>MySQL</li></ul>
+        <div class="case__grid">
+          <div><h4>Problem</h4><p>A large dedup kept failing with "resources exceeded" — analytic window sorts buffered entire partitions per worker.</p></div>
+          <div><h4>Investigation</h4><p>Traced it to <code>QUALIFY ROW_NUMBER() OVER (PARTITION BY key ORDER BY ts)</code> patterns; the limit is per-worker, so splitting into temp tables didn't help a single oversized partition.</p></div>
+          <div><h4>Approach</h4><p>Rewrote the latest-per-key dedup as a <strong>top-1 heap</strong> using <code>ARRAY_AGG(STRUCT(...) ORDER BY ts DESC LIMIT 1)[OFFSET(0)]</code> — keeping one row per key in memory instead of the whole partition. Only the large-table dedups were converted; tiny dimension tables stayed simple.</p></div>
+          <div><h4>Result</h4><p>The query completed reliably; the memory ceiling was no longer the bottleneck.</p></div>
+          <div><h4>What I learned</h4><p>Window functions are convenient but hide huge memory costs on skewed/large partitions. Aggregation-based rewrites are worth the extra verbosity at scale.</p></div>
         </div>
-        <div class="skills__group">
-          <h3>AI / GenAI</h3>
-          <ul><li>Agentic AI</li><li>LangChain</li><li>LLM Orchestration</li><li>NL-to-SQL</li><li>Gemini</li><li>RAG</li><li>Prompt Engineering</li></ul>
+      </article>
+    </section>
+
+    <!-- ===================== S7 LABS ===================== -->
+    <section class="section" id="labs">
+      <h2 class="section__title"><span class="section__num">04</span> S7 Labs</h2>
+      <p class="section__lead">Things I build outside work — experiments, self-hosted apps, and infrastructure I actually run.</p>
+
+      <div class="labs">
+        <div class="lab">
+          <div class="lab__head"><h3>Home Server</h3><span class="lab__status lab__status--run">Running</span></div>
+          <p>Ubuntu box running all personal services in Docker on my own hardware.</p>
         </div>
-        <div class="skills__group">
-          <h3>Homelab</h3>
-          <ul><li>Self-hosted server</li><li>Dockerized apps</li><li>Cloudflare zero-trust</li><li>Custom domain</li><li>End-to-end uptime</li></ul>
+        <div class="lab">
+          <div class="lab__head"><h3>Cloudflare Tunnel</h3><span class="lab__status lab__status--run">Running</span></div>
+          <p>Zero-trust ingress for <code>s7labs.dev</code> — no inbound ports opened at home.</p>
+        </div>
+        <div class="lab">
+          <div class="lab__head"><h3>Immich</h3><span class="lab__status lab__status--run">Running</span></div>
+          <p>Self-hosted photo library replacing cloud photo storage.</p>
+        </div>
+        <div class="lab">
+          <div class="lab__head"><h3>Daily One</h3><span class="lab__status lab__status--run">Running</span></div>
+          <p>Accountability/streak app I use daily (see Projects).</p>
+        </div>
+        <div class="lab">
+          <div class="lab__head"><h3>Athena</h3><span class="lab__status lab__status--exp">Experimental</span></div>
+          <p>Market-data research platform &amp; signal experiments (see Projects).</p>
+        </div>
+        <div class="lab">
+          <div class="lab__head"><h3>SSH hardening</h3><span class="lab__status lab__status--run">Running</span></div>
+          <p>SSH bound to localhost via systemd socket activation; reachable only through the tunnel.</p>
         </div>
       </div>
     </section>
 
-    <!-- ===================== ACHIEVEMENTS ===================== -->
-    <section class="section" id="achievements">
-      <h2 class="section__title"><span class="section__num">04</span> Achievements</h2>
+    <!-- ===================== TECH STACK ===================== -->
+    <section class="section" id="stack">
+      <h2 class="section__title"><span class="section__num">05</span> Tech Stack</h2>
+      <div class="stack">
+        <div class="stack__group">
+          <h3>Languages</h3>
+          <ul><li>Python</li><li>SQL</li></ul>
+        </div>
+        <div class="stack__group">
+          <h3>Data</h3>
+          <ul><li>Spark</li><li>PySpark</li><li>BigQuery</li><li>Databricks</li><li>Delta Lake</li></ul>
+        </div>
+        <div class="stack__group">
+          <h3>Cloud / Infrastructure</h3>
+          <ul><li>GCP</li><li>Azure</li><li>Docker</li><li>Terraform</li><li>Cloudflare</li></ul>
+        </div>
+        <div class="stack__group">
+          <h3>Tools</h3>
+          <ul><li>Git</li><li>GitHub</li><li>Power BI</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CERTIFICATIONS & RECOGNITION ===================== -->
+    <section class="section" id="recognition">
+      <h2 class="section__title"><span class="section__num">06</span> Certifications &amp; Recognition</h2>
       <ul class="awards">
-        <li><span class="awards__tag">Award</span> Q3 2022 <strong>VP CIO Award</strong> — AskBrand Auto Approval, projected to save Shell <strong>$1.3M annually</strong>.</li>
+        <li><span class="awards__tag">Award</span> <strong>VP CIO Award (Q3 2022)</strong> — for an auto-approval system projected to save <strong>$1.3M annually</strong> by automating a manual brand-review workflow.</li>
         <li><span class="awards__tag">Cert</span> <strong>Databricks Certified Data Engineer Associate</strong></li>
         <li><span class="awards__tag">Cert</span> <strong>GCP Professional Data Engineer</strong></li>
         <li><span class="awards__tag">Edu</span> <strong>B.E. Computer Science</strong> — VIT University, Vellore (2021)</li>
       </ul>
     </section>
 
-    <!-- ===================== BEYOND WORK ===================== -->
-    <section class="section" id="beyond">
-      <h2 class="section__title"><span class="section__num">05</span> Beyond Work</h2>
-      <div class="hobbies">
-        <div class="hobby"><span class="hobby__icon">⚽</span><h3>Football</h3><p>Playing and following the beautiful game.</p></div>
-        <div class="hobby"><span class="hobby__icon">🎮</span><h3>Video Games</h3><p>Unwinding with a good game.</p></div>
-        <div class="hobby"><span class="hobby__icon">📺</span><h3>Watching Sports</h3><p>Catching matches across the board.</p></div>
-        <div class="hobby"><span class="hobby__icon">🏋️</span><h3>Working Out</h3><p>Staying active in the gym.</p></div>
+    <!-- ===================== ABOUT ===================== -->
+    <section class="section" id="about">
+      <h2 class="section__title"><span class="section__num">07</span> About Me</h2>
+      <div class="about">
+        <p>
+          I'm a data engineer who enjoys understanding systems beyond the layer I work on. That
+          curiosity is why I ended up running my own home server, self-hosting applications, and
+          building side projects around problems I personally run into.
+        </p>
+        <p>
+          Away from the keyboard I'm into <strong>football</strong>, <strong>chess</strong>, staying
+          active in the gym, and building random things just to see how they work.
+        </p>
       </div>
     </section>
 
     <!-- ===================== CONTACT ===================== -->
     <section class="section section--contact" id="contact">
-      <h2 class="section__title"><span class="section__num">06</span> Get in touch</h2>
+      <h2 class="section__title"><span class="section__num">08</span> Get in touch</h2>
       <p class="contact__lead">
-        Open to conversations about big data platforms, AI, and interesting engineering problems.
+        Want to talk data, infrastructure, or interesting engineering problems?
       </p>
       <div class="contact__links">
-        <a class="btn btn--primary" href="mailto:singh.akash1dec@gmail.com">Email me</a>
+        <a class="btn btn--ghost" href="https://github.com/akashs7" target="_blank" rel="noopener">GitHub</a>
         <a class="btn btn--ghost" href="https://www.linkedin.com/in/akash-singh-1b9586178/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn--ghost" href="mailto:singh.akash1dec@gmail.com">Email</a>
+        <a class="btn btn--primary" data-resume href="/api/resume">Download Résumé</a>
       </div>
+      <p class="contact__note" id="resumeNote" hidden>Thanks — your résumé download is starting.</p>
     </section>
   </main>
 
   <footer class="footer">
-    <p>Built &amp; self-hosted by Akash Singh · <span id="year"></span></p>
+    <p>Built &amp; self-hosted by Akash Singh on S7 Labs · <span id="year"></span></p>
   </footer>
 
   <script src="scripts/main.js"></script>

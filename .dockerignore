@@ -3,4 +3,5 @@
 README.md
 *.tex
 *.pdf
+!assets/resume.pdf
 node_modules

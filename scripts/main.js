@@ -40,5 +40,20 @@ const observer = new IntersectionObserver(
 );
 
 document
-  .querySelectorAll(".section, .job, .skills__group, .hobby")
+  .querySelectorAll(".section, .job, .project, .case, .lab, .stack__group")
   .forEach((el) => observer.observe(el));
+
+// --- Résumé download feedback ---
+// The link points at /api/resume, which nginx serves + logs (download tracking).
+// We just surface a small confirmation; the navigation/download proceeds normally.
+const resumeNote = document.getElementById("resumeNote");
+document.querySelectorAll("[data-resume]").forEach((el) => {
+  el.addEventListener("click", () => {
+    if (!resumeNote) return;
+    resumeNote.hidden = false;
+    clearTimeout(resumeNote._t);
+    resumeNote._t = setTimeout(() => {
+      resumeNote.hidden = true;
+    }, 5000);
+  });
+});
