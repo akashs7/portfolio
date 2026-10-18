@@ -44,8 +44,8 @@ document
   .forEach((el) => observer.observe(el));
 
 // --- Résumé download feedback ---
-// The link points at /api/resume, which nginx serves + logs (download tracking).
-// We just surface a small confirmation; the navigation/download proceeds normally.
+// The link points at the static assets/resume.pdf (download attribute forces a
+// save with a friendly filename). We just surface a small confirmation.
 const resumeNote = document.getElementById("resumeNote");
 document.querySelectorAll("[data-resume]").forEach((el) => {
   el.addEventListener("click", () => {
